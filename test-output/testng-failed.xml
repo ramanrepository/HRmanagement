@@ -6,7 +6,7 @@
       <class name="testLayer.Logintest">
         <methods>
           <include name="Title"/>
-          <include name="intialsetup"/>
+          <include name="initsetup"/>
           <include name="close"/>
         </methods>
       </class> <!-- testLayer.Logintest -->

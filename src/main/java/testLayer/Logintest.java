@@ -8,16 +8,18 @@ import org.testng.annotations.Test;
 import basePackage.BaseHRMClass;
 import pompackage.PomLogin;
 
+
 public class Logintest extends BaseHRMClass{
-   PomLogin Log;
-   
-	public void LoginTest() {
-		
-		super();
-		
-	}
+	
+public void LoginTest() {
+	super();
+
+}
+  
+	
+	PomLogin Log;
 	@BeforeMethod
-	public void intialsetup() {
+	public void initsetup() {
 	initiate();
 	Log = new PomLogin();
 	
@@ -26,7 +28,15 @@ public class Logintest extends BaseHRMClass{
 	
 	public void Title() {
 		String actual = Log.verify();
+		System.out.println(actual);
 		Assert.assertEquals(actual, "OrangeHRM");
+		String expectedtitle="OrangeHRM";
+		String actualtitle="Null";
+		try {
+		    Assert.assertEquals(expectedtitle, actualtitle);
+		} catch(Throwable t) {              
+		    org.testng.Assert.fail("expected and actual result do not match");      
+		}
 	}
 	@AfterMethod
 	public void close() {

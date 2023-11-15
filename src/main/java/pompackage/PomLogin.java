@@ -1,9 +1,9 @@
 package pompackage;
 
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import basePackage.BaseHRMClass;
 
@@ -21,7 +21,7 @@ WebElement Loginbutton;
 
  public PomLogin(){
 	 PageFactory.initElements(driver, this);
-	 
+	
  }
  public void typeusername(String name) {
 	 Username.sendKeys(name);
@@ -34,7 +34,9 @@ public void clickbutton() {
 	Loginbutton.click();
 	}
 public String verify() {
+	// TODO Auto-generated method stub
 	return null;
 }
+
 
 }

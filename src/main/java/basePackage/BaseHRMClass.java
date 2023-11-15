@@ -4,11 +4,13 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
-
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import utility.TimeUtils;
 
 
 
@@ -31,26 +33,27 @@ public class BaseHRMClass {
     		a.printStackTrace();
     	}
     }
+	@SuppressWarnings("deprecation")
 	public static void initiate() {
     		//driver path
     	String browsername =prop.getProperty("browser");
-    	if(browsername.equals("Chrome")) {
-    		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+    	if(browsername.equals("chrome")) {
+    		System.setProperty("webdriver.chrome.driver", "C:\\Users\\raman\\eclipse-workspace\\HRmanagement\\chromedriver.exe");
     		driver = new ChromeDriver();
     	}
-    		else if (browsername.equals("Firefox")) {
-    			System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
+    		else if (browsername.equals("Microsoft Edge")) {
+    			System.setProperty("webdriver.msedge.driver", "msedgedriver.exe");
     			driver = new FirefoxDriver();
     		}
-    	}
+    	
     		
-    		//maximize,pageload,implicit,getting url
-    	
-    	//driver.manage().window().maximize();
-    //	driver.manage().timeouts().pageLoadTimeout(TimeUtils.timepage,TimeUnit.SECONDS);
-    	//driver.get(prop.getProperty("url"));
     	
     	
-} 
+    	driver.manage().window().maximize();
+  driver.manage().timeouts().pageLoadTimeout(TimeUtils.timepage,TimeUnit.SECONDS);
+    	driver.get(prop.getProperty("url"));
+    	
+    	
+} }
     
     
